@@ -1,0 +1,16 @@
+# Arbol del Torneo en Pre-Orden con marcadores '#'
+M;1;3;posadas;-;-;-
+M;2;2;corrientes;Tano;Lola;-
+M;4;1;resistencia;Rodri;Tano;Tano
+#
+#
+M;5;1;resistencia;Lola;Pipa;Lola
+#
+#
+M;3;2;corrientes;Negro;Beto;-
+M;6;1;formosa;Chino;Negro;Negro
+#
+#
+M;7;1;formosa;Ana;Beto;Beto
+#
+#

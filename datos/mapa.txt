@@ -1,0 +1,48 @@
+# Rutas entre provincias de la gira: origen;destino;distancia (en cientos de km, aproximada)
+# El grafo es dirigido: cada ruta de ida y vuelta va en dos lineas.
+# Noreste
+formosa;chaco;2
+chaco;formosa;2
+chaco;corrientes;1
+corrientes;chaco;1
+corrientes;misiones;3
+misiones;corrientes;3
+# Noreste <-> Noroeste
+formosa;salta;7
+salta;formosa;7
+chaco;salta;8
+salta;chaco;8
+chaco;santiago del estero;6
+santiago del estero;chaco;6
+# Noroeste
+salta;jujuy;1
+jujuy;salta;1
+salta;tucuman;3
+tucuman;salta;3
+tucuman;catamarca;2
+catamarca;tucuman;2
+tucuman;santiago del estero;2
+santiago del estero;tucuman;2
+catamarca;santiago del estero;4
+santiago del estero;catamarca;4
+# Noroeste <-> Centro
+santiago del estero;cordoba;4
+cordoba;santiago del estero;4
+catamarca;cordoba;4
+cordoba;catamarca;4
+# Centro
+cordoba;santa fe;3
+santa fe;cordoba;3
+santa fe;entre rios;1
+entre rios;santa fe;1
+santa fe;buenos aires;5
+buenos aires;santa fe;5
+entre rios;buenos aires;4
+buenos aires;entre rios;4
+cordoba;buenos aires;7
+buenos aires;cordoba;7
+# Noreste <-> Centro
+chaco;santa fe;5
+santa fe;chaco;5
+corrientes;entre rios;6
+entre rios;corrientes;6

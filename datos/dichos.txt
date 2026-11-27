@@ -1,0 +1,73 @@
+# Corpus de dichos del rival para el modelo de Markov, al estilo del Martin Fierro
+# (habla gauchesca: el pingo, la viguela, la pampa, "naides", "ansi", "dende").
+# Una frase por linea; las lineas con # son comentarios. La primera palabra (o expresion)
+# de cada frase es su "semilla": el juego pide frases que empiecen con truco, quiero, toma...
+
+# Al empezar la ronda
+buenas, aqui me siento a jugar al compas de la viguela
+buenas, que el gaucho que se sienta a esta mesa no se achica
+buenas, paisano, que la noche es larga y la baraja es criolla
+buenas, que dende chico aprendi a jugar en la pampa
+buenas, y que naides se queje de la suerte que le toca
+buenas, que el que nace pa gaucho juega con el corazon
+buenas, aparcero, reparta nomas que vengo de lejos
+buenas, que en esta mesa se juega como gaucho de ley
+
+# Envido
+envido, que tengo los tantos como estrellas tiene el cielo
+envido, que el gaucho que no canta no merece la viguela
+envido, y que lo sepa naides mas que usted y yo
+envido, que vengo con tanto como el pingo que galopa
+envido, ansi canta el gaucho cuando la mano viene buena
+real envido, que la pampa entera me presta los tantos
+real envido, y que retumbe la payada en el rancho
+real envido, que no hay gaucho que me gane en contar
+falta envido, que el gaucho juega todo como juega la vida
+falta envido, y que el destino diga quien es el mejor
+falta envido, que pa morir en la raya nacio este criollo
+
+# Truco
+truco, que dende el rancho vengo cantando sin miedo
+truco, que el gaucho bravo no le teme a la partida
+truco, y que naides diga que este paisano se achico
+truco, que tengo el ancho de espadas como facon en la cintura
+truco, ansi se juega en la pampa cuando el pingo esta ensillado
+retruco, que mi madre me pario pa cantar y pa jugar
+retruco, que el que se asusta del truco no merece la baraja
+retruco, y que lo oiga la pampa entera
+vale cuatro, que juego la vida entera como juega el gaucho
+vale cuatro, que naides me ha visto achicar en la payada
+vale cuatro, y que sea lo que el destino quiera
+
+# Respuestas
+quiero, que el gaucho de ley no le dice no a la partida
+quiero, y que la suerte se decida al compas de la viguela
+quiero, que dende chico aprendi a no achicarme
+quiero, como quiere el pingo la pampa abierta
+quiero, ansi se contesta en el rancho del criollo
+no quiero, que el gaucho prudente sabe cuando callar
+no quiero, que hay que saber perder pa saber ganar
+no quiero, y que naides me lo eche en cara
+no quiero, que el zorro viejo no muerde el anzuelo
+me voy al mazo, que el gaucho sabio no pelea contra el destino
+me voy al mazo, que otra mano vendra como viene el alba
+
+# Cuando el rival gana una baza
+toma, que ansi se juega en la pampa
+toma, paisano, que el gaucho de ley no perdona
+toma, y aprenda que el que madruga gana la partida
+toma, que esta baza la canto la viguela
+
+# Cuando el rival pierde una baza
+que suerte la del paisano, como pingo en tierra llana
+que suerte, pero el gaucho no se rinde en la primera
+que suerte, y yo con estas cartas como rancho sin techo
+que suerte, que la pampa es larga y la noche tambien
+
+# Al terminar el partido
+me ganaste, paisano, y el gaucho sabe reconocer al mejor
+me ganaste, pero la revancha la canto en otra payada
+me ganaste, y que lo cuente la pampa entera
+se termino la partida y el gaucho se lleva la gloria
+se termino, paisano, que la suerte fue criolla esta noche
+se termino, y que naides olvide quien canto mas fuerte

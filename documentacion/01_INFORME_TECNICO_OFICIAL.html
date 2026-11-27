@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informe Técnico Oficial · TrucoAro</title>
+<style>
+  :root {
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --text: #0f172a;
+    --muted: #475569;
+    --border: #e2e8f0;
+    --brand: #0f766e;
+    --brand-light: #f0fdfa;
+    --brand-border: #99f6e4;
+    --accent: #b45309;
+    --accent-light: #fffbeb;
+    --code-bg: #1e293b;
+    --code-text: #e2e8f0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --border: #334155;
+      --brand: #2dd4bf;
+      --brand-light: #134e4a;
+      --brand-border: #115e59;
+      --accent: #f59e0b;
+      --accent-light: #451a03;
+      --code-bg: #020617;
+      --code-text: #f1f5f9;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.65;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 30px 15px;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  }
+  header {
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 25px;
+    margin-bottom: 30px;
+  }
+  .kicker {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--brand);
+    margin-bottom: 6px;
+  }
+  h1 { margin: 0 0 10px; font-size: 2.2rem; line-height: 1.2; }
+  h2 { font-size: 1.45rem; margin-top: 35px; border-bottom: 1px solid var(--border); padding-bottom: 8px; color: var(--brand); }
+  h3 { font-size: 1.15rem; margin-top: 25px; }
+  p, li { color: var(--text); font-size: 0.96rem; }
+  .badge {
+    display: inline-block;
+    padding: 3px 9px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    border-radius: 6px;
+    background: var(--brand-light);
+    color: var(--brand);
+    border: 1px solid var(--brand-border);
+  }
+  .callout {
+    background: var(--brand-light);
+    border-left: 4px solid var(--brand);
+    padding: 14px 18px;
+    border-radius: 0 10px 10px 0;
+    margin: 20px 0;
+    font-size: 0.93rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.9rem;
+  }
+  th, td {
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    text-align: left;
+  }
+  th { background: var(--brand-light); font-weight: 700; color: var(--brand); }
+  code {
+    font-family: ui-monospace, Consolas, monospace;
+    font-size: 0.88em;
+    background: rgba(125,125,125,0.12);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  pre {
+    background: var(--code-bg);
+    color: var(--code-text);
+    padding: 16px;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-family: ui-monospace, Consolas, monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  .print-btn {
+    float: right;
+    background: var(--brand);
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .print-btn:hover { opacity: 0.85; }
+  @media print {
+    body { padding: 0; background: #fff; color: #000; }
+    .container { border: none; box-shadow: none; padding: 0; max-width: 100%; }
+    .print-btn { display: none; }
+    h2 { page-break-before: auto; }
+  }
+  @media print {
+    body { font-size: 10.5pt; }
+    table { font-size: 8.5pt; }
+    th, td { padding: 4px 7px; }
+    h2 { margin-top: 18px; }
+    header { margin-bottom: 14px; padding-bottom: 10px; }
+  }
+  @page { size: A4; margin: 14mm 13mm; }
+  @media print {
+    li, p { font-size: 10pt; line-height: 1.45; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <button class="print-btn" onclick="window.print()">🖨️ Imprimir / Guardar en PDF</button>
+  <header>
+    <div class="kicker">Universidad Tecnológica Nacional · Facultad Regional Resistencia</div>
+    <h1>Informe Técnico: TrucoAro</h1>
+    <p><strong>Materia:</strong> Programación II · Plan 2024 · Cátedra Prof. Ing. Juan Manuel Goya<br>
+    <strong>Trabajo:</strong> Game Jam Java II · Estructuras no lineales, Markov con tokens y persistencia<br>
+    <strong>Versión:</strong> Entrega final · Noviembre 2026</p>
+  </header>
+
+  <h2>1. El juego</h2>
+  <p><strong>TrucoAro</strong> es un truco argentino de dos jugadores (vos contra la computadora) hecho en Java estándar sobre el motor del kit de la cátedra. Se juega con mouse o teclado y respeta las reglas tradicionales: envido, real envido y falta envido; truco, retruco y vale cuatro; flor opcional; pardas y mano; partidos a 15 o a 30 puntos (con malas y buenas). El menú ofrece cuatro modos:</p>
+  <ul>
+    <li><strong>Gira:</strong> recorrido por Argentina en 3 regiones (Noreste, Noroeste y Centro) y 13 provincias, en orden y sin saltear ninguna. Cada región da 6 vidas: perder o abandonar un partido cuesta una vida y se repite la misma provincia; con 0 vidas la región empieza de nuevo. El mapa de Argentina (con las Islas Malvinas) hace zoom en la región actual y anima el viaje por la ruta más corta.</li>
+    <li><strong>Torneo:</strong> llave eliminatoria de 8 jugadores (cuartos, semifinal y final). Los partidos ajenos se resuelven solos y los ganadores avanzan por el árbol.</li>
+    <li><strong>Clasificatoria:</strong> ranking histórico de jugadores, ordenado por puntaje.</li>
+    <li><strong>Opciones:</strong> resolución y pantalla completa, accesibles también desde la pausa (Esc).</li>
+  </ul>
+  <p>Durante el partido, el rival habla en un globo con frases que genera un modelo de Markov entrenado con un corpus propio al estilo del <em>Martín Fierro</em>, y el jugador puede escribir sus cantos ("quiero retruco", "me voy al mazo"), que se interpretan con un Trie.</p>
+
+  <h2>2. Estructuras y su función en el juego</h2>
+  <table>
+    <thead>
+      <tr><th>Estructura</th><th>Clase</th><th>Qué decide en el juego</th><th>Sin ella…</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Árbol binario</strong></td>
+        <td><code>ArbolBinario&lt;Etapa&gt;</code> en <code>Gira</code></td>
+        <td>La gira es un árbol general (país → regiones → provincias) guardado como binario: <em>hijo izquierdo = primer hijo, hijo derecho = siguiente hermano</em>. El recorrido <strong>pre-orden</strong> da exactamente el orden de la gira y define qué provincia se puede jugar.</td>
+        <td>No hay orden de provincias ni regiones con vidas.</td>
+      </tr>
+      <tr>
+        <td><strong>Árbol binario</strong></td>
+        <td><code>ArbolBinario&lt;Partido&gt;</code> en <code>Torneo</code></td>
+        <td>La llave de 7 partidos. Recorrida <strong>por niveles</strong> (con Cola propia) queda 0 = final, 1-2 = semis, 3-6 = cuartos; el ganador del partido <em>i</em> sube a su padre <em>(i − 1) / 2</em>.</td>
+        <td>No hay cuadro eliminatorio ni avance a la final.</td>
+      </tr>
+      <tr>
+        <td><strong>ABB</strong></td>
+        <td><code>ABB&lt;ClaveRanking&gt;</code></td>
+        <td>Clasificatoria. Al terminar un partido se <strong>elimina</strong> la fila vieja del jugador y se inserta la nueva (el puntaje es la clave). Se lista con in-orden <strong>iterativo con Pila propia</strong>.</td>
+        <td>No hay ranking ordenado.</td>
+      </tr>
+      <tr>
+        <td><strong>ABB</strong></td>
+        <td><code>ABB&lt;EstadoMarkov&gt;</code></td>
+        <td>Tabla de transiciones de Markov: clave = los últimos <em>k</em> tokens, valor = Lista de sucesores.</td>
+        <td>El modelo no puede buscar sucesores.</td>
+      </tr>
+      <tr>
+        <td><strong>Trie</strong></td>
+        <td><code>Trie</code>, <code>InterpreteCantos</code></td>
+        <td>(1) Cantos escritos por el jugador: coincidencia más larga ("quiero retruco" es un solo canto) y sugerencias por prefijo mientras escribe. (2) Tokeniza el corpus: "me voy al mazo" o "vale cuatro" quedan como un solo token.</td>
+        <td>No se puede cantar escribiendo; Markov cortaría las expresiones del truco.</td>
+      </tr>
+      <tr>
+        <td><strong>Grafo</strong></td>
+        <td><code>Grafo&lt;String&gt;</code></td>
+        <td>Rutas entre las 13 provincias (dirigido y ponderado, distancia en cientos de km). <strong>Dijkstra</strong> calcula el camino que se dibuja en el mapa, el viaje animado y los km. <strong>Detección de ciclos</strong> (<code>formanCiclo</code>, con DFS recursivo): solo se puede viajar a la provincia siguiente si desde la última ganada hay ida <em>y vuelta</em>; con una ruta solo de ida el botón JUGAR se bloquea ("quedarías varado"). <strong>BFS</strong>: al abrir el mapa verifica que todas las provincias sean alcanzables (si no, avisa en pantalla) y cuenta los tramos del viaje (<code>tramosHasta</code>).</td>
+        <td>No hay rutas, ni viaje, ni control de rutas sin regreso.</td>
+      </tr>
+      <tr>
+        <td><strong>Markov</strong></td>
+        <td><code>ModeloMarkov</code> (k = 2)</td>
+        <td>Todo lo que dice el rival: al repartir ("buenas…"), al cantar o responder ("truco…", "no quiero…"), al ganar o perder una baza ("toma…", "que suerte…") y en la pantalla final.</td>
+        <td>El rival no habla.</td>
+      </tr>
+      <tr>
+        <td><strong>Lista</strong></td>
+        <td><code>MiLista&lt;T&gt;</code></td>
+        <td>Mazo y manos, bazas de la ronda, adyacencias del grafo, sucesores de Markov, crónica de la mesa, imágenes de las cartas.</td>
+        <td>Base de todas las demás estructuras.</td>
+      </tr>
+      <tr>
+        <td><strong>Pila</strong></td>
+        <td><code>MiPila&lt;T&gt;</code></td>
+        <td>Escalera del envido (Envido → Real → Falta: el tope dice qué se puede cantar después), in-orden iterativo del ABB y reconstrucción del camino de Dijkstra.</td>
+        <td>No se valida la escalera de cantos.</td>
+      </tr>
+      <tr>
+        <td><strong>Cola</strong></td>
+        <td><code>MiCola&lt;T&gt;</code></td>
+        <td>Eventos de la mesa, que se muestran en el orden en que ocurrieron (simulación de turnos); recorrido por niveles de la llave; BFS.</td>
+        <td>Los avisos saldrían desordenados.</td>
+      </tr>
+      <tr>
+        <td><strong>Lista de prioridad</strong></td>
+        <td><code>ListaPrioridad&lt;T&gt;</code></td>
+        <td>Lista ordenada por distancia para Dijkstra. También ordena las notas del tango que el juego sintetiza.</td>
+        <td>Dijkstra no tendría de dónde sacar el mínimo.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>¿Por qué lista de adyacencia y no matriz?</strong> El mapa tiene 13 vértices y 40 aristas: una matriz ocuparía 13 × 13 = 169 celdas para 40 rutas (76 % vacías), y recorrer los vecinos de un vértice costaría O(V) en lugar de O(grado). Además, la consigna no permite arreglos fuera de los TAD.</p>
+
+  <h2>3. Persistencia (java.io)</h2>
+  <p>Todos los archivos están en <code>datos/</code>, en texto UTF-8, y solo el paquete <code>persistencia</code> los toca. Cada lectura y escritura usa <code>try-with-resources</code>; antes de sobrescribir se copia el archivo a <code>.bak</code> (<code>Respaldo</code>). Si falta un archivo, el juego arranca con datos iniciales; si una línea está dañada, se avisa en pantalla (<code>Avisos</code> → <code>Notificaciones</code>) y se continúa.</p>
+  <table>
+    <thead>
+      <tr><th>Archivo</th><th>Contenido y formato</th><th>Ejemplo de línea</th><th>Si está dañado</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>gira.txt</code></td>
+        <td>Árbol de la gira en <strong>pre-orden</strong>: <code>vidas=N</code> y luego un nodo por línea <code>E;tipo;clave;nombre;ganada</code>; <code>#</code> = hijo nulo.</td>
+        <td><code>E;PROVINCIA;chaco;Chaco;si</code></td>
+        <td>Se avisa y empieza una gira nueva (en pre-orden cada línea define la forma de lo que sigue).</td>
+      </tr>
+      <tr>
+        <td><code>llave.txt</code></td>
+        <td>Árbol del torneo en <strong>pre-orden</strong>: <code>M;id;ronda;sede;jugadorA;jugadorB;ganador</code>; <code>#</code> = hijo nulo; <code>-</code> = vacío.</td>
+        <td><code>M;4;1;resistencia;Rodri;Tano;-</code></td>
+        <td>Se avisa y se usa la llave inicial.</td>
+      </tr>
+      <tr>
+        <td><code>mapa.txt</code></td>
+        <td>Grafo, <strong>una arista por línea</strong>: <code>origen;destino;distancia</code>.</td>
+        <td><code>chaco;corrientes;1</code></td>
+        <td>Se saltea solo esa arista; si no queda ninguna, mapa base.</td>
+      </tr>
+      <tr>
+        <td><code>ranking.txt</code></td>
+        <td>Una fila por jugador: <code>puntaje;nombre;partidas;victorias</code>.</td>
+        <td><code>30;Rodri;4;4</code></td>
+        <td>Se saltea solo esa fila.</td>
+      </tr>
+      <tr>
+        <td><code>progreso.txt</code></td>
+        <td>Pares <code>clave=valor</code>: nombre, puntos, fichas.</td>
+        <td><code>puntos=20</code></td>
+        <td>Ese dato queda con su valor inicial.</td>
+      </tr>
+      <tr>
+        <td><code>dichos.txt</code></td>
+        <td>Corpus de Markov: una frase por línea; <code>#</code> = comentario.</td>
+        <td><code>truco, que el gaucho bravo no le teme a la partida</code></td>
+        <td>Si falta, se entrena con un corpus base interno.</td>
+      </tr>
+      <tr>
+        <td><code>opciones.txt</code></td>
+        <td>Pares <code>clave=valor</code>: resolución y pantalla completa.</td>
+        <td><code>resolucion=1024x768</code></td>
+        <td>Se ignora la línea; por defecto 800×600 en ventana.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Las imágenes de las cartas (<code>datos/cartas</code>) y el sonido del reparto (<code>datos/audio</code>) también se leen desde <code>persistencia</code> (<code>RepositorioRecursos</code>). Si falta una imagen, se avisa y la carta se dibuja con un diseño simple.</p>
+
+  <h2>4. Análisis de costo (Big-O)</h2>
+  <p><em>n</em> = elementos; <em>h</em> = altura del árbol; <em>V</em>, <em>E</em> = vértices y aristas; <em>L</em> = largo de una palabra; <em>N</em> = largo del texto; <em>S</em> = estados de Markov; <em>m</em> = sucesores de un estado.</p>
+  <table>
+    <thead>
+      <tr><th>Estructura</th><th>Operación</th><th>Tiempo</th><th>Lo que domina el costo</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>MiLista</code></td><td>agregar al final / obtener(i) / eliminar(i)</td><td>O(1) / O(n) / O(n)</td><td>Doblemente enlazada con cabeza y cola: agregar no recorre; acceder por índice sí.</td></tr>
+      <tr><td><code>MiPila</code>, <code>MiCola</code></td><td>apilar, desapilar / encolar, desencolar</td><td>O(1)</td><td>Enlazadas: solo se tocan los extremos.</td></tr>
+      <tr><td><code>ListaPrioridad</code></td><td>encolar / desencolarMin</td><td>O(n) / O(1)</td><td>Lista ordenada: insertar busca la posición; el mínimo siempre está adelante.</td></tr>
+      <tr><td><code>ArbolBinario</code></td><td>insertar por niveles / buscar</td><td>O(n)</td><td>Recorre con Cola hasta el primer hueco o el elemento.</td></tr>
+      <tr><td><code>ArbolBinario</code></td><td>pre / in / post-orden y por niveles</td><td>O(n)</td><td>Cada nodo se visita una vez y se agrega al final de una Lista.</td></tr>
+      <tr><td><code>Gira</code></td><td>provincia actual, región de una provincia</td><td>O(n)</td><td>Un recorrido pre-orden del árbol (17 nodos).</td></tr>
+      <tr><td><code>Torneo</code></td><td>registrar resultado</td><td>O(n)</td><td>Un recorrido por niveles y obtener(i) sobre la Lista (7 partidos).</td></tr>
+      <tr><td><code>ABB</code></td><td>insertar / buscar / eliminar</td><td>O(h): O(log n) promedio, O(n) peor</td><td>Bajar por una rama; el peor caso es un árbol degenerado (claves ya ordenadas).</td></tr>
+      <tr><td><code>ABB</code></td><td>in-orden iterativo</td><td>O(n) tiempo, O(h) espacio</td><td>La Pila guarda como máximo una rama.</td></tr>
+      <tr><td><code>Trie</code></td><td>insertar / buscar / prefijo</td><td>O(L)</td><td>Un nodo por carácter; cada hijo se encuentra en O(1) (256 hijos por nodo).</td></tr>
+      <tr><td><code>Trie</code></td><td>sugerencias(prefijo)</td><td>O(L + t)</td><td><em>t</em> = nodos del subárbol del prefijo.</td></tr>
+      <tr><td><code>Trie</code></td><td>tokenizar por coincidencia más larga</td><td>O(N · L)</td><td>Desde cada posición se avanza hasta el token más largo que coincide.</td></tr>
+      <tr><td><code>Grafo</code></td><td>agregar arista</td><td>O(V)</td><td>Buscar el vértice de origen en la Lista de vértices.</td></tr>
+      <tr><td><code>Grafo</code></td><td>BFS / DFS / ciclos</td><td>O(V · (V + E))</td><td>O(V + E) visitas, pero cada consulta "¿ya visitado?" recorre una Lista de marcas: O(V). Con un mapa de 13 vértices es despreciable; con marcas en el vértice bajaría a O(V + E).</td></tr>
+      <tr><td><code>Grafo</code></td><td>Dijkstra</td><td>O((V + E)²) peor caso</td><td>Hasta E inserciones en la ListaPrioridad, cada una O(V + E); se descartan las entradas viejas al salir ("eliminación perezosa").</td></tr>
+      <tr><td><code>ModeloMarkov</code></td><td>entrenar</td><td>O(T · (k + log S))</td><td><em>T</em> tokens del corpus: armar la clave de k tokens y buscarla en el ABB.</td></tr>
+      <tr><td><code>ModeloMarkov</code></td><td>generar (máx. L tokens)</td><td>O(L · (log S + m))</td><td>Buscar el estado en el ABB y elegir un sucesor con obtener(i) sobre su Lista.</td></tr>
+      <tr><td><code>MesaTruco</code></td><td>jugar carta, cantar, responder</td><td>O(1)</td><td>Manos de 3 cartas, Pila del envido, Cola de eventos.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>5. Markov: comparación con distintos k</h2>
+  <p>El corpus <code>dichos.txt</code> tiene unas 60 frases propias en habla gauchesca ("naides", "ansí", "dende", el pingo, la vigüela), agrupadas por situación. Cada frase empieza con su <strong>semilla</strong> (truco, quiero, toma…), y el juego pide frases que empiecen con la semilla de lo que pasa en la mesa. Los tokens son palabras o expresiones del vocabulario del truco, gracias al Trie.</p>
+  <table>
+    <thead><tr><th>k</th><th>Estados en el ABB</th><th>Salidas reales con las semillas "truco" y "quiero"</th><th>Lectura</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>177</td><td>"truco que usted y la cintura"<br>"quiero y que no a la noche tambien"</td><td>Mezcla mucho: es original, pero pierde el sentido a las dos o tres palabras.</td></tr>
+      <tr><td>2</td><td>356</td><td>"truco ansi se contesta en el rancho del criollo"<br>"quiero como quiere el pingo la pampa abierta"</td><td>El equilibrio: frases con sentido, y a veces combina dos dichos en uno nuevo. <strong>Es el que usa el juego.</strong></td></tr>
+      <tr><td>3</td><td>420</td><td>"truco que tengo el ancho de espadas como facon en la cintura"<br>"quiero ansi se contesta en el rancho"</td><td>Casi siempre repite un dicho entero o lo corta en un cruce.</td></tr>
+      <tr><td>4</td><td>444</td><td>"truco que dende el rancho vengo cantando sin miedo"<br>"quiero que el gaucho de ley no le dice no a la partida"</td><td>Copia el corpus casi textual: con un corpus chico, a más k, menos creatividad.</td></tr>
+    </tbody>
+  </table>
+  <p>Con un k mayor hay más estados distintos, y cada uno tiene menos sucesores (en general uno solo), así que la cadena se vuelve determinista. Con un k menor hay pocos estados con muchos sucesores, lo que da mucha variedad y poca coherencia. Las comparaciones se pueden repetir con <code>RepositorioCorpus.crearModelo(k)</code>.</p>
+  <p><strong>Estados sin sucesores (control de calidad):</strong> el modelo nunca devuelve una frase vacía, y cada decisión queda anotada en una bitácora (<code>ResultadoGeneracion.getBitacora()</code>):</p>
+  <ol>
+    <li>Si el estado actual no tiene sucesores, hace un <strong>retroceso de contexto</strong>: descarta el token más viejo (de k a k − 1) y vuelve a buscar.</li>
+    <li>Si ni con un solo token hay sucesores, cierra la frase como si hubiera llegado el <strong>token de fin</strong> (<code>&lt;FIN&gt;</code>, que también se aprende al final de cada frase del corpus).</li>
+    <li>Si la semilla pedida no empieza ninguna frase, se anota y se arranca desde un inicio al azar.</li>
+    <li>Si el modelo está vacío, o el resultado quedaría vacío, se usa un texto de respaldo.</li>
+    <li>Si la frase llega al <strong>largo máximo</strong> sin terminar (el rival pide hasta 12 tokens), se anota en la bitácora y se muestra terminada en "…" en lugar de "." (<code>isCortadaPorLargo()</code>). Así nunca se corta sin avisar.</li>
+  </ol>
+
+  <h2>6. Decisiones sobre repetidos y empates</h2>
+  <ul>
+    <li><strong>ABB con clave repetida:</strong> si se inserta un elemento igual a uno existente (<code>compareTo</code> = 0), se reemplaza el dato del nodo, y no se agrega un nodo nuevo.</li>
+    <li><strong>Ranking:</strong> la clave compara por puntaje y, a igual puntaje, por nombre, así que dos jugadores empatados conviven en el ABB. Cada jugador tiene una sola fila: al registrar un partido se elimina su fila vieja y se inserta la acumulada.</li>
+    <li><strong>Sucesores repetidos en Markov:</strong> son intencionales. Si "truco que" aparece tres veces, "que" está tres veces en la Lista, y elegir un índice al azar respeta la frecuencia.</li>
+    <li><strong>Empates del truco:</strong> una baza empatada es <em>parda</em>, y se resuelve según la tabla tradicional (parda en primera: define la segunda; una cada uno y parda: gana quien ganó la primera; tres pardas: gana la mano). En el envido y en flor contra flor, el empate lo gana la mano.</li>
+    <li><strong>Dijkstra con distancias iguales:</strong> se queda con el primer camino encontrado. Las mejoras de distancia se aceptan solo si son estrictamente menores.</li>
+  </ul>
+
+  <h2>7. POO, restricciones y pruebas</h2>
+  <ul>
+    <li><strong>Clase abstracta:</strong> <code>Canto</code>, con <code>puntosAceptado()</code>, <code>puntosRechazado()</code> y <code>siguienteNivel()</code>. Sus 6 subclases (<code>Truco</code>, <code>Retruco</code>, <code>ValeCuatro</code>, <code>Envido</code>, <code>RealEnvido</code>, <code>FaltaEnvido</code>) se usan en la mesa. La escalera del truco avanza con <code>siguienteNivel()</code>, sin preguntar el tipo.</li>
+    <li><strong>Interfaces propias con polimorfismo real:</strong> <code>EstrategiaRival</code> (Conservadora, Arriesgada, Mentirosa: el rival de cada región de la gira juega distinto) y <code>ModoPartido</code> (<code>ModoGira</code>, <code>ModoTorneo</code>: qué pasa al ganar, perder o abandonar). No hay <code>instanceof</code> en el juego.</li>
+    <li><strong>Encapsulamiento y validación:</strong> atributos <code>private</code>, validados en constructores y setters (cartas 1-7 y 10-12, costos no negativos, partidas ≥ victorias, puntaje del partido 15 o 30).</li>
+    <li><strong>Genéricos y equals/hashCode:</strong> los árboles, el grafo, la Lista, la Pila, la Cola y la lista de prioridad son genéricos. <code>Carta</code>, <code>Etapa</code>, <code>Partido</code> y <code>ClaveRanking</code> redefinen <code>equals</code> y <code>hashCode</code>.</li>
+    <li><strong>Excepciones propias:</strong> <code>ReglaInvalidaException</code> (jugadas o configuraciones imposibles) y <code>DatoDanadoException</code> (líneas dañadas en los archivos, que se convierten en avisos).</li>
+    <li><strong>Restricciones:</strong> de <code>java.util</code> solo se usa <code>Random</code>; no se usa <code>java.nio</code> ni serialización. Los únicos arreglos son los 256 hijos de <code>NodoTrie</code> (dentro del TAD) y el resultado de <code>split</code> al leer los archivos. La música se genera nota a nota con la lista de prioridad, sin arreglos.</li>
+    <li><strong>Pruebas:</strong> <code>PruebaEstructuras</code> pasa 86 de 86 verificaciones. Incluye los casos borde que pide la consigna: árbol de un nodo, grafo sin aristas, camino inexistente, Markov sin sucesores y Trie sin coincidencia, Markov cortado por largo, además de archivos dañados o ausentes en carpetas temporales, sin tocar <code>datos/</code>. <code>PruebaReglas</code> pasa 59 de 59 (envido, pardas, escalera del truco, flor, cantos escritos), con un mazo preparado.</li>
+  </ul>
+</div>
+
+</body>
+</html>

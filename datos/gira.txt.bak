@@ -1,0 +1,37 @@
+# Gira por Argentina: vidas y arbol en pre-orden (izq = primer hijo, der = siguiente hermano)
+vidas=5
+E;PAIS;argentina;Argentina;no
+E;REGION;noreste;Noreste (NEA);no
+E;PROVINCIA;formosa;Formosa;si
+#
+E;PROVINCIA;chaco;Chaco;no
+#
+E;PROVINCIA;corrientes;Corrientes;no
+#
+E;PROVINCIA;misiones;Misiones;no
+#
+#
+E;REGION;noroeste;Noroeste (NOA);no
+E;PROVINCIA;jujuy;Jujuy;no
+#
+E;PROVINCIA;salta;Salta;no
+#
+E;PROVINCIA;tucuman;Tucuman;no
+#
+E;PROVINCIA;catamarca;Catamarca;no
+#
+E;PROVINCIA;santiago del estero;Santiago del Estero;no
+#
+#
+E;REGION;centro;Centro;no
+E;PROVINCIA;cordoba;Cordoba;no
+#
+E;PROVINCIA;santa fe;Santa Fe;no
+#
+E;PROVINCIA;entre rios;Entre Rios;no
+#
+E;PROVINCIA;buenos aires;Buenos Aires;no
+#
+#
+#
+#

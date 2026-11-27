@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual del Jugador y Reglas · TrucoAro</title>
+<style>
+  :root {
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --text: #0f172a;
+    --border: #e2e8f0;
+    --brand: #0f766e;
+    --brand-light: #f0fdfa;
+    --gold: #b45309;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --text: #f8fafc;
+      --border: #334155;
+      --brand: #2dd4bf;
+      --brand-light: #134e4a;
+      --gold: #f59e0b;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 30px 15px;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  }
+  h1 { font-size: 2.1rem; margin: 0 0 10px; }
+  h2 { font-size: 1.35rem; margin-top: 30px; border-bottom: 2px solid var(--border); padding-bottom: 6px; color: var(--brand); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin: 20px 0; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  }
+  .card b { color: var(--brand); display: block; margin-bottom: 4px; font-size: 1.05rem; }
+  kbd {
+    background: rgba(125,125,125,0.18);
+    border: 1px solid var(--border);
+    border-bottom: 2px solid var(--border);
+    border-radius: 5px;
+    padding: 2px 6px;
+    font-size: 0.82rem;
+    font-family: monospace;
+    font-weight: 700;
+  }
+  .rank-list {
+    column-count: 2;
+    column-gap: 30px;
+    font-size: 0.92rem;
+  }
+  .print-btn {
+    float: right;
+    background: var(--brand);
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  @media print {
+    body { padding: 0; background: #fff; color: #000; }
+    .container { border: none; box-shadow: none; padding: 0; max-width: 100%; }
+    .print-btn { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <button class="print-btn" onclick="window.print()">🖨️ Imprimir / Guardar en PDF</button>
+  <header>
+    <div style="font-size:0.8rem; font-weight:700; color:var(--brand); text-transform:uppercase;">Instrucciones y Jugabilidad</div>
+    <h1>Manual del Jugador y Reglas de Juego</h1>
+    <p>Guía de mandos, jerarquía tradicional de cartas y mecánica de viaje por la Pampa.</p>
+  </header>
+
+  <h2>1. Controles y Atajos de Teclado</h2>
+  <div class="grid">
+    <div class="card">
+      <b>En el Menú Principal</b>
+      <p><kbd>↑</kbd> / <kbd>↓</kbd> (o <kbd>W</kbd>/<kbd>S</kbd>): Seleccionar opción.<br>
+      <kbd>ENTER</kbd> / <kbd>ESPACIO</kbd>: Confirmar.<br>
+      <kbd>F6</kbd>: Activar o silenciar la música.</p>
+    </div>
+    <div class="card">
+      <b>En el Mapa de la Gira</b>
+      <p><kbd>←</kbd> / <kbd>→</kbd> (o <kbd>A</kbd>/<kbd>D</kbd>): Elegir destino.<br>
+      <kbd>ENTER</kbd>: Viajar por ruta Dijkstra.<br>
+      <kbd>P</kbd>: Jugar Partido en sede.<br>
+      <kbd>L</kbd>: Ver Llave del torneo.<br>
+      <kbd>ESC</kbd>: Menú principal.</p>
+    </div>
+    <div class="card">
+      <b>En la Mesa de Truco</b>
+      <p><kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd>: Jugar carta 1, 2 o 3.<br>
+      <kbd>E</kbd>: Cantar Envido.<br>
+      <kbd>T</kbd>: Cantar Truco.<br>
+      <kbd>Q</kbd>: Responder "Quiero".<br>
+      <kbd>N</kbd>: Responder "No Quiero".<br>
+      <kbd>M</kbd>: Irse al Mazo.<br>
+      <kbd>ESC</kbd>: Salir al Mapa.</p>
+    </div>
+    <div class="card">
+      <b>En el Laboratorio Markov</b>
+      <p><kbd>1</kbd> a <kbd>4</kbd>: Cambiar orden $k$.<br>
+      <kbd>G</kbd> / <kbd>ESPACIO</kbd>: Regenerar frases.<br>
+      <kbd>ESC</kbd>: Volver al menú.</p>
+    </div>
+  </div>
+
+  <h2>2. Jerarquía Completa de las Cartas (de Mayor a Menor)</h2>
+  <div class="rank-list">
+    <ol>
+      <li><strong>1 de Espada</strong> (El Macho / Ancho de espada) - Poder 14</li>
+      <li><strong>1 de Basto</strong> (El Hembra / Ancho de basto) - Poder 13</li>
+      <li><strong>7 de Espada</strong> (Manilla de espada) - Poder 12</li>
+      <li><strong>7 de Oro</strong> (Manilla de oro) - Poder 11</li>
+      <li><strong>Todos los 3</strong> (Espada, Basto, Oro, Copa) - Poder 10</li>
+      <li><strong>Todos los 2</strong> (Espada, Basto, Oro, Copa) - Poder 9</li>
+      <li><strong>1 de Oro y 1 de Copa</strong> (Anchos falsos) - Poder 8</li>
+      <li><strong>Todos los 12</strong> (Reyes) - Poder 7</li>
+      <li><strong>Todos los 11</strong> (Caballos) - Poder 6</li>
+      <li><strong>Todos los 10</strong> (Sotas) - Poder 5</li>
+      <li><strong>7 de Basto y 7 de Copa</strong> (7 falsos) - Poder 4</li>
+      <li><strong>Todos los 6</strong> - Poder 3</li>
+      <li><strong>Todos los 5</strong> - Poder 2</li>
+      <li><strong>Todos los 4</strong> (Las cartas más bajas) - Poder 1</li>
+    </ol>
+  </div>
+
+  <h2>3. Cómo se Juega una Mano</h2>
+  <p>Cada jugador recibe 3 cartas de la baraja española de 40 cartas. Se disputan hasta 3 bazas (trucos). Quien gana 2 bazas se adjudica los puntos de la mano.</p>
+  <ul>
+    <li><strong>Envido:</strong> Se canta antes de jugar la primera carta. Si se tienen 2 cartas del mismo palo, el puntaje es 20 + la suma de sus valores (las figuras 10, 11 y 12 valen 0). Si son de palos distintos, vale la carta más alta. Otorga 2 puntos si es querido, o 1 punto si el rival dice "No Quiero".</li>
+    <li><strong>Truco:</strong> Eleva el valor de la mano a 2 puntos. Si el rival no quiere, el que cantó suma 1 punto y termina la mano de inmediato.</li>
+    <li><strong>Empates (Pardas):</strong> En caso de empate en la primera baza, quien gane la segunda gana la mano. Si empatan las tres, gana el jugador que es mano.</li>
+    <li><strong>Victoria:</strong> El primer jugador en alcanzar <strong>15 puntos</strong> gana la partida y avanza en la llave del torneo hacia la final de Posadas.</li>
+  </ul>
+</div>
+
+</body>
+</html>
